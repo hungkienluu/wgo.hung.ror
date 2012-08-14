@@ -155,7 +155,7 @@ class UsersController < ApplicationController
          respond_to do |format| 
              format.html { render :json => {:Success => true}, :callback => params[:callback] }
              format.json { render :json => {:Success => true}, :callback => params[:callback] }
-         end
+       end
        else           
            respond_to do |format|
              format.html { render :json => {:Success => false}, :callback => params[:callback] }
