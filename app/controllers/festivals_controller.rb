@@ -44,7 +44,7 @@ class FestivalsController < ApplicationController
   # POST /festivals
   # POST /festivals.json
   def create
-    @festival = Festival.new(params[:festival])
+    @festival = Festival.new(:name => params[:name], :details => params[:details], :city => params[:city], :period => params[:period], :timings => params[:timings], :telephone => params[:telephone] )
 
     respond_to do |format|
       if @festival.save
