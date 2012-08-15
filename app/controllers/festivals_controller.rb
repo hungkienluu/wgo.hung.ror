@@ -5,7 +5,7 @@ class FestivalsController < ApplicationController
   # http://wgo-hung-ror.herokuapp.com/users/insertUser//changed to blooming something heroku
   def index
     # @offset, @limit = api_offset_and_limit
-    @festivals =  Festival.find :all,
+    @festivals =  Festival.find :all
                         # :limit  =>  @limit,
                         # :offset =>  @offset
     respond_to do |format|
