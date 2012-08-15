@@ -5,9 +5,9 @@ class FestivalsController < ApplicationController
   # http://wgo-hung-ror.herokuapp.com/users/insertUser//changed to blooming something heroku
   def index
     # @offset, @limit = api_offset_and_limit
-    # @festivals =  Festival.find :all,
-    #                     :limit  =>  @limit,
-    #                     :offset =>  @offset
+    @festivals =  Festival.find :all,
+                        # :limit  =>  @limit,
+                        # :offset =>  @offset
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => {:Success => true, :Data => @festivals}, :callback => params[:callback] }
