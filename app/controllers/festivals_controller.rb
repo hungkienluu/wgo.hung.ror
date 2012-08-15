@@ -63,7 +63,7 @@ class FestivalsController < ApplicationController
     @festival = Festival.find(params[:id])
 
     respond_to do |format|
-      if @festival.update_attributes(params[:festival])
+      if @festival.update_attributes(:name => params[:name], :details => params[:details], :city => params[:city], :period => params[:period], :timings => params[:timings], :telephone => params[:telephone])
         format.html { redirect_to @festival, notice: 'Festival was successfully updated.' }
         format.json { head :no_content }
       else
