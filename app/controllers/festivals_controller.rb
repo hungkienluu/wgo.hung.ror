@@ -44,8 +44,9 @@ class FestivalsController < ApplicationController
   # POST /festivals
   # POST /festivals.json
   def create
-    @festival = Festival.new(:name => params[:name], :details => params[:details], :city => params[:city], :period => params[:period], :timings => params[:timings], :telephone => params[:telephone], :created_at => params[:current_date], :updated_at => params[:current_date])
-
+    #@festival = Festival.new(params[:festival])
+    @festival = Festival.new(:name => params[:name], :details => params[:details], :city => params[:city], :period => params[:period], :timings => params[:timings], :telephone => params[:telephone])
+    
     respond_to do |format|
       if @festival.save
         format.html { redirect_to @festival, notice: 'Festival was successfully created.' }
@@ -61,15 +62,15 @@ class FestivalsController < ApplicationController
   # PUT /festivals/1.json
   def update
     @festival = Festival.find(params[:id])
-    respond_to do |format|
-      if(@festival.update_attributes(:name => params[:name], :details => params[:details], :city => params[:city], :period => params[:period], :timings => params[:timings], :telephone => params[:telephone]))
-
-        format.html { redirect_to @festival, notice: 'Festival was successfully updated.' }
-        format.json { head :no_content }
-      else
-
-        format.html { render action: "edit" }
-        format.json { render json: @festival.errors, status: :unprocessable_entity }
+    if(@festival.update_attributes(:name => params[:name], :details => params[:details], :city => params[:city], :period => params[:period], :timings => params[:timings], :telephone => params[:telephone]))
+      respond_to do |format|
+         format.html { redirect_to @festival, notice: 'Festival was successfully updated.' }
+         format.json { render :json => {:Success => true}, :callback => params[:callback] }
+      end
+    else
+      respond_to do |format|
+         format.html { render action: "edit" }
+         format.json { render :json => {:Success => true}, :callback => params[:callback] }
       end
     end
   end
