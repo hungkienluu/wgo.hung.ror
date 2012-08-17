@@ -4,10 +4,11 @@ class FestivalsController < ApplicationController
   # GET /festivals.json
   # http://wgo-hung-ror.herokuapp.com/users/insertUser//changed to blooming something heroku
   def index
-    @offset, @limit = api_offset_and_limit
-    @festivals =  Festival.find :all,
-                        :limit  =>  @limit,
-                        :offset =>  @offset
+    # @offset, @limit = api_offset_and_limit
+    @festivals =  Festival.find :all
+    # ,
+    #                     :limit  =>  @limit,
+    #                     :offset =>  @offset
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => {:Success => true, :Data => @festivals}, :callback => params[:callback] }
