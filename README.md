@@ -1,4 +1,4 @@
 wgo.hung.ror
 ============
 
-WGo App Ruby on Rails Backend
+What's Going On App Ruby on Rails Backend for Sencha Touch 2 Mobile App
